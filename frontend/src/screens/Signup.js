@@ -35,6 +35,7 @@ export default function Signup() {
     }
 
   }
+   console.log(process.env.REACT_APP_API);
 
   const onChange=(event)=>{
     setCredentials({...credentials, [event.target.name]: event.target.value})
