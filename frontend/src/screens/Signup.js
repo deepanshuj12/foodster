@@ -22,7 +22,7 @@ export default function Signup() {
     });
     const json= await response.json()
     console.log(json)
-
+    console.log(process.env.REACT_APP_API);
     if(!json.success)
     {
     alert(json.message || "Enter valid credentials")
@@ -35,7 +35,7 @@ export default function Signup() {
     }
 
   }
-   console.log(process.env.REACT_APP_API);
+  
 
   const onChange=(event)=>{
     setCredentials({...credentials, [event.target.name]: event.target.value})
