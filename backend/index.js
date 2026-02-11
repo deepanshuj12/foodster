@@ -6,6 +6,7 @@ const cors = require('cors');
 mongoDB();
 
 app.use(cors());
+app.options('*', cors());
 
 app.use(express.json());
 
