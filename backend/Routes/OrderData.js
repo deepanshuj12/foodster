@@ -2,23 +2,24 @@ const express = require("express");
 const router = express.Router();
 const Order = require("../models/Orders");
 
-// Preflight handlers
-router.options("/orders", (req, res) => {
+const setCorsHeaders = (res) => {
   res.setHeader("Access-Control-Allow-Origin", "https://foodster-stxh.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+};
+
+router.options("/orders", (req, res) => {
+  setCorsHeaders(res);
   res.status(200).end();
 });
 
 router.options("/myorders", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://foodster-stxh.vercel.app");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  setCorsHeaders(res);
   res.status(200).end();
 });
 
 router.post("/orders", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://foodster-stxh.vercel.app");
+  setCorsHeaders(res);
 
   let data = req.body.order_data;
   data.splice(0, 0, { Order_date: req.body.order_date });
@@ -54,7 +55,7 @@ router.post("/orders", async (req, res) => {
 });
 
 router.post("/myorders", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://foodster-stxh.vercel.app");
+  setCorsHeaders(res);
 
   try {
     let myData = await Order.findOne({ email: req.body.email });
@@ -65,7 +66,6 @@ router.post("/myorders", async (req, res) => {
 });
 
 module.exports = router;
-
 
 // const express = require("express");
 // const router = express.Router();
