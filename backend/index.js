@@ -3,15 +3,13 @@ const app = express();
 const mongoDB = require("./db");
 const cors = require('cors');
 import CreateUser from "./Routes/CreateUser";
-import Login from "./Routes/Login";
+import Login from "./Routes/Login";dssmd,csdlkc weclkwqec
 import CardData from "./Routes/CardData";
 import OrderData from "./Routes/OrderData";
 
 mongoDB();
 
-app.use(cors({
-  origin: process.env.PUBLIC_BASE_URL
-}));
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/CreateUser', CreateUser);
