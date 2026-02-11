@@ -5,19 +5,22 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-router.options("/createuser", (req, res) => {
+const setCorsHeaders = (res) => {
   res.setHeader("Access-Control-Allow-Origin", "https://foodster-stxh.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+};
+
+router.options("/createuser", (req, res) => {
+  setCorsHeaders(res);
   res.status(200).end();
 });
 
-router.post(
-  "/createuser",
+router.post("/createuser",
   body("email").isEmail(),
   body("password").isLength({ min: 5 }),
   async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://foodster-stxh.vercel.app");
+    setCorsHeaders(res);
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -52,7 +55,6 @@ router.post(
 );
 
 module.exports = router;
-
 
 
 // const express = require("express");
