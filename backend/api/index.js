@@ -6,12 +6,10 @@ const cors = require('cors');
 mongoDB();
 
 app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://foodster-stxh.vercel.app"
-  ],
+  origin: true,
   credentials: true
 }));
+
 app.use(express.json());
 
 app.use('/api', require("../Routes/CreateUser"));
