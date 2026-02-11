@@ -1,12 +1,8 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const mongousername= process.env.MONGO_USERNAME;
-const mongopassword= process.env.MONGO_PASSWORD;
-const mongocluster= process.env.MONGO_CLUSTER;
-const mongoURI= `mongodb+srv://${mongousername}:${mongopassword}@${mongocluster}/foodstermern?retryWrites=true&w=majority&appName=Cluster0`
 
 const mongoDB = async () => {
-    await mongoose.connect(mongoURI, {useNewUrlParser: true} ,async(err, result)=>{
+    await mongoose.connect(process.env.MONGOURI, {useNewUrlParser: true} ,async(err, result)=>{
         if(err)
         {
             console.log(err)

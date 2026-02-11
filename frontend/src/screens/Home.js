@@ -40,31 +40,3 @@ export default function () {
 
 
 
-
-
-// import React, {useState} from "react";
-// import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
-// import Carousel from "../components/Carousel";
-// import CardDisplay from "../components/CardDisplay";
-
-// export default function () {
-//   const [searchTerm, setSearchTerm] = useState("");
-//   return (
-//     <div>
-//       <div>
-//         <Navbar />
-//       </div>
-//       <div>
-//         <Carousel setSearchTerm={setSearchTerm} />
-//       </div>
-//       <div className="m-2 ">
-//         <CardDisplay searchTerm={searchTerm} />
-//       </div>
-//       <div>
-//         <Footer />
-//       </div>
-//     </div>
-//   );
-// }
-

@@ -6,7 +6,7 @@ export default function CardDisplay({ searchTerm }) {
   const [foodItems, setfoodItems] = useState([]);
 
   const loadData = async () => {
-    let response = await fetch("http://localhost:5000/api/CardData", {
+    let response = await fetch(`${process.env.REACT_APP_API}/CardData`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
