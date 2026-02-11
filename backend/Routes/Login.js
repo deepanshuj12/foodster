@@ -6,19 +6,22 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-router.options("/login", (req, res) => {
+const setCorsHeaders = (res) => {
   res.setHeader("Access-Control-Allow-Origin", "https://foodster-stxh.vercel.app");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+};
+
+router.options("/login", (req, res) => {
+  setCorsHeaders(res);
   res.status(200).end();
 });
 
-router.post(
-  "/login",
+router.post("/login",
   body("email").isEmail(),
   body("password").isLength({ min: 5 }),
   async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://foodster-stxh.vercel.app");
+    setCorsHeaders(res);
 
     try {
       const errors = validationResult(req);
@@ -49,7 +52,6 @@ router.post(
 );
 
 module.exports = router;
-
 
 // require('dotenv').config();
 // const express = require("express");
