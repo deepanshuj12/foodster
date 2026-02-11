@@ -1,24 +1,20 @@
-const express = require('express');
-const app = express();
-const mongoDB = require("./db");
+const express = require('express')
+const app = express()
+const port = 5000
+const mongoDB = require("./db")
 const cors = require('cors');
-import CreateUser from "./Routes/CreateUser";
-import Login from "./Routes/Login";
-import CardData from "./Routes/CardData";
-import OrderData from "./Routes/OrderData";
 
 mongoDB();
-
 app.use(cors());
-app.use(express.json());
 
-app.use('/api/CreateUser', CreateUser);
-app.use('/api/Login', Login);
-app.use('/api/CardData', CardData);
-app.use('/api/OrderData', OrderData);
-
+app.use(express.json())
+app.use('/api', require("./Routes/CreateUser"));
+app.use('/api', require("./Routes/Login"));
+app.use('/api', require("./Routes/CardData"));
+app.use('/api', require("./Routes/OrderData"));
 app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-module.exports = app;
+  res.send('Hello World!')
+})
+app.listen(port, () => {
+  console.log(`APP LISTENING ON PORT ${port}`)
+})
