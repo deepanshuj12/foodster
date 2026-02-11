@@ -8,8 +8,6 @@ mongoDB();
 app.use(cors({
   origin: process.env.PUBLIC_BASE_URL
 }));
-app.options('*', cors());
-
 app.use(express.json());
 
 app.use('/api', require("./Routes/CreateUser"));
