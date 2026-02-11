@@ -5,7 +5,9 @@ const cors = require('cors');
 
 mongoDB();
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.PUBLIC_BASE_URL
+}));
 app.use(express.json());
 
 app.use('/api', require("../Routes/CreateUser"));
