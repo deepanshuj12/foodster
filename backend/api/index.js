@@ -6,7 +6,11 @@ const cors = require('cors');
 mongoDB();
 
 app.use(cors({
-  origin: process.env.PUBLIC_BASE_URL
+  origin: [
+    "http://localhost:3000",
+    "https://foodster-stxh.vercel.app"
+  ],
+  credentials: true
 }));
 app.use(express.json());
 
