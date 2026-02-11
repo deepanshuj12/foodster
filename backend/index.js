@@ -5,7 +5,11 @@ const cors = require('cors');
 
 mongoDB();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://foodster-stxh.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
 app.options('*', cors());
 
 app.use(express.json());
