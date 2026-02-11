@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Carousel from "../components/Carousel";
 import CardDisplay from "../components/CardDisplay";
 
-export default function () {
+function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -37,6 +37,6 @@ export default function () {
     </div>
   );
 }
-
+export default Home;
 
 
