@@ -3,7 +3,7 @@ const app = express();
 const mongoDB = require("./db");
 const cors = require('cors');
 import CreateUser from "./Routes/CreateUser";
-import Login from "./Routes/Login";dssmd,csdlkc weclkwqec
+import Login from "./Routes/Login";
 import CardData from "./Routes/CardData";
 import OrderData from "./Routes/OrderData";
 
