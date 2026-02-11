@@ -6,8 +6,7 @@ const cors = require('cors');
 mongoDB();
 
 app.use(cors({
-  origin: true,
-  credentials: true
+  origin: process.env.PUBLIC_BASE_URL
 }));
 
 app.use(express.json());
