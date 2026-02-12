@@ -3,7 +3,12 @@ const app = express();
 const mongoDB = require("./db");
 const cors = require('cors');
 
-mongoDB();
+// mongoDB();
+app.use(async (req, res, next) => {
+  await mongoDB();
+  next();
+});
+
 
 app.use(cors());
 app.use(express.json());
