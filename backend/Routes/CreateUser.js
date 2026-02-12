@@ -37,7 +37,8 @@ router.post(
       const authToken=jwt.sign(data,process.env.SECRET)
       return res.json({ success: true, authToken:authToken });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      console.error();
       res.json({ success: false });
     }
   }
