@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { FaUser, FaEnvelope, FaLock, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Signup() {
